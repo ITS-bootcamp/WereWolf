@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find_by(params[:id])
+    @room = Room.find_by(id: params[:id])
   end
 
   def new
