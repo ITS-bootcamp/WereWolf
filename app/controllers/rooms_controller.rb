@@ -1,9 +1,12 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @rooms = Room.order(id: :desc).limit(10)
   end
 
   def show
+    @room = Room.find_by(params[:id])
   end
 
   def new
@@ -11,6 +14,12 @@ class RoomsController < ApplicationController
   end
 
   def create
+    @room = Room.new(room_params)
+    if @room.save
+      redirect_to room_path(:id), flash: {notice: 'Roomを作成しました！'}
+    else
+      redirect_to action: 'new', flash: {alert: 'Roomが作成できませんでした、、、'}
+    end
   end
 
   def destroy
