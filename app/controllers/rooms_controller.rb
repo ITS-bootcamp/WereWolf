@@ -15,6 +15,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
+    @room.author_id = current_user.id
     if @room.save
       redirect_to room_path(@room), flash: {notice: 'Roomを作成しました！'}
     else
