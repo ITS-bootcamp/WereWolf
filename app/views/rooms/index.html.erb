@@ -3,3 +3,5 @@
 <% @rooms.each do |room| %>
   <%= link_to "#{room.name}", room_path(room.id) %>
 <% end %>
+
+<%= link_to '部屋を作成する', new_room_path %>
