@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   def index
+    @rooms = Room.order(id: :desc).limit(10)
   end
 
   def show
