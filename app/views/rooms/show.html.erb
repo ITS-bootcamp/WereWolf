@@ -4,7 +4,10 @@
   </div>
 <% end %>
 <% if accepted?(current_user.id, @room.id) %>
-  <h1><%= @room.name %>へようこそ！</h1>
+  <h1><%= @room.name %></h1>
+  <% if current_user.id == @room.author_id %>
+    <%= link_to '開始する', room_comment_index_path(@room.id) %>
+  <% end %>
 <% else %>
   <p><%= @room.name %>への参加が許可されていません。</p>
   <p>参加しますか？</p>

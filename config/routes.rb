@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'rooms#index'
   resources :rooms, except: [:edit, :update], shallow: true do
-    resources :comment, only: [:new, :create]
+    resources :comment, only: [:index, :create]
   end
   scope :rooms do
     post '/:id/user' => 'rooms#create_room_user'
