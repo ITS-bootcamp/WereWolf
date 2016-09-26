@@ -10,3 +10,15 @@
   <p>参加しますか？</p>
   <%= link_to '参加', "/rooms/#{@room.id}/user", method: :post %>
 <% end %>
+
+
+<h2>メンバー一覧</h2>
+
+<% if @room.author_id == current_user.id %>
+  <div class="btn btn-primary">参加</div>
+<% end %>
+
+<% @room.room_users.each do |room_user| %>
+  <div><%= room_user.user.email %></div>
+  <hr>
+<% end %>
