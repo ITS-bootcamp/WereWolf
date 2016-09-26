@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
   end
 
   def new
+    @room = Room.new
   end
 
   def create
@@ -14,4 +15,9 @@ class RoomsController < ApplicationController
 
   def destroy
   end
+
+  private
+    def room_params
+      params.require(:room).permit(:name, :author_id)
+    end
 end

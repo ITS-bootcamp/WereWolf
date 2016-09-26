@@ -1,0 +1,13 @@
+<%= form_for(@room) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :author_id %>
+    <%= f.select :author_id, User.all.map(&:email) %>
+  </div>
+  <div class="actions">
+    <%= f.submit '作成' %>
+  </div>
+<% end %>
