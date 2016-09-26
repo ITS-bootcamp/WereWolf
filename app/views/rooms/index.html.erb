@@ -1,5 +1,14 @@
-<h1>Rooms#index</h1>
-
-<% @rooms.each do |room| %>
-  <%= link_to "#{room.name}", room_path(room.id) %>
-<% end %>
+<header>
+	<div class = "title">
+		<p class = "title">WERE WOLF</p>
+	</div>		
+</header>
+<body>
+	<section>
+		<h1>Rooms#index</h1>
+		<% @rooms.each do |room| %>
+		  <%= link_to "#{room.name}", room_path(room.id) %>
+		<% end %>
+		<p>テキスト</p>
+	</section>
+</body>
