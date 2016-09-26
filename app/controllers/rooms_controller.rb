@@ -22,7 +22,14 @@ class RoomsController < ApplicationController
     end
   end
 
-  def destroy
+  def create_room_user
+    @room = Room.find(params[:id])
+    @room_user = RoomUser.new(user_id: current_user.id, room_id: params[:id], role: 1)
+    if @room_user.save
+      redirect_to room_path(params[:id]), flash: {notice: "#{@room.name}のメンバーになりました！"}
+    else
+      redirect_to room_path(params[:id]), flash: {notice: "#{@room.name}に参加できませんでした、、、"}
+    end
   end
 
   private

@@ -8,4 +8,5 @@
 <% else %>
   <p><%= @room.name %>への参加が許可されていません。</p>
   <p>参加しますか？</p>
+  <%= link_to '参加', "/rooms/#{@room.id}/user", method: :post %>
 <% end %>
