@@ -1,13 +1,13 @@
 
 
-<h1>Room一覧</h1>
+<h2>Room一覧</h2>
 <hr>
 <% @rooms.each do |room| %>
   <h4><%= link_to "#{room.name}", room_path(room.id) %></h4>
   <p>テキスト</p>
   <hr>
 <% end %>
-<div class="text-center"><%= link_to '新しくルームを作成', new_room_path, class: "btn btn-primary" %></div>
+<div class="text-center"><%= link_to '新しくルームを作成', new_room_path, class: "btn-blue" %></div>
 
 
 
