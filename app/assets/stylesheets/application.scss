@@ -17,17 +17,19 @@
 
 
 body {
-	background-size: 100% 160%;
+	// background-size: 100% 160%;
 	background-image: image-url("bg.jpg");
 	margin: 0px;
+	background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 header {
 	height: 50px;
 	border-bottom: 1px solid #fff;
 	background-color: #000;
-	opacity: 0.6; 
-
+	opacity: 0.6;
 }
 
 .title {
@@ -41,6 +43,18 @@ header {
 	margin-bottom: 0px;
 	line-height: 50px;
 }
+.title-text{
+	font-size: 1.3em;
+	font-weight: bold;
+	color: #fff;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	line-height: 50px;
+	display: inline;
+	a{
+	  color: #fff;
+	}
+}
 
 
 section {
@@ -53,3 +67,5 @@ section {
 	margin-left: auto;
 	padding: 15px;
 }
+
+

@@ -9,14 +9,26 @@
   </head>
 
   <body>
-    <% if user_signed_in? %> 
-      Logged in as <%= current_user.email %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>|
-      <%= link_to 'ルーム作成', new_room_path %>
-    <% else %>
-      <%= link_to "サインアップ", new_user_registration_path %> |
-    <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
-    <%= yield %>
+    <header>
+	  <div class="title">
+	   	<p class="title-text">
+	   	  WERE WOLF
+	   	</p>
+	   	<ul class="pull-right title-text">
+	   	    <% if user_signed_in? %> 
+	          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+	          <%= link_to 'ルーム作成', new_room_path %>
+	        <% else %>
+	          <%= link_to "サインアップ", new_user_registration_path %> |
+	        <%= link_to "ログイン", new_user_session_path %>
+	        <% end %>
+	   	  </ul>
+	  </div>		
+	</header>
+
+	<section>
+	  <%= yield %>
+	</section>
+    
   </body>
 </html>

@@ -4,6 +4,8 @@
   </div>
 <% end %>
 <% if accepted?(current_user.id, @room.id) %>
+  <h1 class="text-center"><%= @room.name %>へようこそ！</h1>
+
   <h1><%= @room.name %></h1>
   <% if current_user.id == @room.author_id %>
     <%= link_to '開始する', room_comment_index_path(@room.id) %>
@@ -11,16 +13,19 @@
 <% else %>
   <p><%= @room.name %>への参加が許可されていません。</p>
   <p>参加しますか？</p>
-  <%= link_to '参加', "/rooms/#{@room.id}/user", method: :post %>
+  <%= link_to '参加', "/rooms/#{@room.id}/user", method: :post, class: "btn btn-primary" %>
 <% end %>
 
-
-<h2>メンバー一覧</h2>
+<div class="text-center">
+  <h3>メンバー一覧</h3>	
+</div>
 
 <% if @room.author_id == current_user.id %>
   <div class="btn btn-primary">参加</div>
 <% end %>
 
+参加者 <%= @room.room_users.count %>人
+<hr>
 <% @room.room_users.each do |room_user| %>
   <div><%= room_user.user.email %></div>
   <hr>
