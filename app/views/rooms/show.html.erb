@@ -4,7 +4,9 @@
   </div>
 <% end %>
 <% if accepted?(current_user.id, @room.id) %>
+
   <h1 class="text-center"><%= @room.name %>へようこそ！</h1>
+
 <% else %>
   <p><%= @room.name %>への参加が許可されていません。</p>
   <p>参加しますか？</p>
@@ -22,9 +24,6 @@
   <div><%= room_user.user.email %></div>
   <hr>
 <% end %>
-<p class="text-center">
-	参加者 <%= @room.room_users.count %>人
-</p>
 
 <% if current_user.id == @room.author_id %>
   <div class="text-center">
