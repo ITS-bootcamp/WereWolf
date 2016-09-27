@@ -1,30 +1,31 @@
 <% if params[:notice] %>
   <%= params[:notice] %>
 <% end %>
-<h1><%= @room.name %></h1>
+<h1 class="text-center"><%= @room.name %></h1>
 <h2>あなたの役職は、<%= current_user.room_users.find_by(room_id: @room.id).try(:role) %>です</h2>
+<hr>
 
-<table>
   <% @comments.each do |comment| %>
     <% if comment.user.rooms %>
-    <thead>
-      <tr>
-        <th>user</th>
-        <th>content</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= comment.user.email %></td>
-        <td><%= comment.content %></td>
-      </tr>
-    </tbody>
+      <div class="roomuser-email">
+        <%= comment.user.email %>
+      </div>
+        
+      <div class="room-comment">
+        <%= comment.content %>
+      </div>
+      <hr>
     <% end %>
   <% end %>
-</table>
+  <%= form_for(@comment, :url => room_comment_index_path) do |f| %>
+    <label>コメント：</label>
+    <div class="form-group">
+      <%= f.text_area :content, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit '送信', class: "btn btn-success form-control" %>
+    </div>
+    
+  <% end %>
 
-<%= form_for(@comment, :url => room_comment_index_path) do |f| %>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-  <%= f.submit 'コメントする' %>
-<% end %>
+  

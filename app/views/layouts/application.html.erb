@@ -17,7 +17,7 @@
 	   	<ul class="pull-right title-text">
 	   	    <% if user_signed_in? %> 
 	          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-	          <%= link_to 'ルーム作成', new_room_path %>
+	          <%= link_to 'ルーム一覧', rooms_path %>
 	        <% else %>
 	          <%= link_to "サインアップ", new_user_registration_path %> |
 	        <%= link_to "ログイン", new_user_session_path %>
