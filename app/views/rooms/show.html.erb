@@ -1,0 +1,32 @@
+<% if flash[:notice] %>
+  <div class="alert alert-info">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<% if accepted?(current_user.id, @room.id) %>
+
+  <h1 class="text-center"><%= @room.name %>へようこそ！</h1>
+
+<% else %>
+  <p><%= @room.name %>への参加が許可されていません。</p>
+  <p>参加しますか？</p>
+  <%= link_to '参加', "/rooms/#{@room.id}/user", method: :post, class: "btn btn-primary" %>
+<% end %>
+
+<div class="text-center">
+  <h3>メンバー一覧</h3>	
+</div>
+
+
+参加者 <%= @room.room_users.count %>人
+<hr>
+<% @room.room_users.each do |room_user| %>
+  <div><%= room_user.user.email %></div>
+  <hr>
+<% end %>
+
+<% if current_user.id == @room.author_id %>
+  <div class="text-center">
+  	<%= link_to '開始する', room_comment_index_path(@room.id), class: "btn btn-primary" %>
+  </div>
+<% end %>

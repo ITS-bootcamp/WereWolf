@@ -1,0 +1,14 @@
+
+
+
+<h2 class="text-center">Room一覧</h2>
+<hr>
+<% @rooms.each do |room| %>
+  <h4><%= link_to "#{room.name}", room_path(room.id) %></h4>
+  <hr>
+<% end %>
+<div class="text-center"><%= link_to '新しくルームを作成', new_room_path, class: "btn-blue" %></div>
+
+
+
+

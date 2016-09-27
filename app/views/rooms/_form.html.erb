@@ -1,0 +1,19 @@
+<% if flash[:alert] %>
+  <div class="alert alert-info">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+<%= form_for(@room) do |f| %>
+<div class="row">
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= f.label :name, 'ルーム名' %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="actions">
+    <%= f.submit 'ルーム作成', class: "btn-blue" %>
+  </div>
+</div>
+  
+<% end %>
