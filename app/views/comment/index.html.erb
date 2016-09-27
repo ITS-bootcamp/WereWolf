@@ -1,8 +1,8 @@
 <% if params[:notice] %>
   <%= params[:notice] %>
 <% end %>
-<h1 class="text-center"><%= @room.name %></h1>
-<h2>あなたの役職は、<%= current_user.room_users.find_by(room_id: @room.id).try(:role) %>です</h2>
+<h2 class="text-center"><%= @room.name %></h2>
+<h4>あなたの役職は、<%= current_user.room_users.find_by(room_id: @room.id).try(:role) %>です</h4>
 <hr>
 
   <% @comments.each do |comment| %>

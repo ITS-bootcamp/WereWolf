@@ -24,9 +24,6 @@
   <div><%= room_user.user.email %></div>
   <hr>
 <% end %>
-<p class="text-center">
-	参加者 <%= @room.room_users.count %>人
-</p>
 
 <% if current_user.id == @room.author_id %>
   <div class="text-center">
