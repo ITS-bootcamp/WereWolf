@@ -5,10 +5,15 @@
 <% end %>
 <% if accepted?(current_user.id, @room.id) %>
   <h1 class="text-center"><%= @room.name %>へようこそ！</h1>
+
+  <h1><%= @room.name %></h1>
+  <% if current_user.id == @room.author_id %>
+    <%= link_to '開始する', room_comment_index_path(@room.id) %>
+  <% end %>
 <% else %>
   <p><%= @room.name %>への参加が許可されていません。</p>
   <p>参加しますか？</p>
-  <%= link_to '参加', "/rooms/#{@room.id}/user", method: :post %>
+  <%= link_to '参加', "/rooms/#{@room.id}/user", method: :post, class: "btn btn-primary" %>
 <% end %>
 
 <div class="text-center">
