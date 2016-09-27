@@ -1,22 +1,14 @@
-<header>
-	<div class = "title">
-		<p class = "title">WERE WOLF</p>
-	</div>		
-</header>
-<body>
-	<section>
-		<h1>Rooms#index</h1>
-		<% @rooms.each do |room| %>
-		  <%= link_to "#{room.name}", room_path(room.id) %>
-		<% end %>
-		<p>テキスト</p>
-	</section>
-</body>
-<h1>Room一覧</h1>
 
+
+<h1>Room一覧</h1>
+<hr>
 <% @rooms.each do |room| %>
-  <%= link_to "#{room.name}", room_path(room.id) %>
+  <h4><%= link_to "#{room.name}", room_path(room.id) %></h4>
+  <p>テキスト</p>
   <hr>
 <% end %>
+<div class="text-center"><%= link_to '新しくルームを作成', new_room_path, class: "btn btn-primary" %></div>
 
-<div><%= link_to '新しくルームを作成', new_room_path %></div>
+
+
+

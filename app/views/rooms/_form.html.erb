@@ -4,11 +4,16 @@
   </div>
 <% end %>
 <%= form_for(@room) do |f| %>
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-8 col-md-offset-2">
     <%= f.label :name, 'ルーム名' %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
+</div>
+<div class="row">
   <div class="actions">
-    <%= f.submit 'ルーム作成' %>
+    <%= f.submit 'ルーム作成', class: "btn btn-default" %>
   </div>
+</div>
+  
 <% end %>
